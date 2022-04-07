@@ -1,0 +1,96 @@
+﻿@model SimpleCRUDExample.Models.Employee.EmployeeViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h4 class="text-center">
+    Edit Employee
+</h4>
+<hr />
+<script>$.validator.unobtrusive.parse($("#editmployee"));</script>
+<div class="row justify-content-md-center">
+    <div class="col-md-12">
+        <form id="editmployee" asp-action="Edit" data-ajax-failure="onFailed" data-ajax-loading="#loaderbody" data-ajax-success="onSuccess" data-ajax="true" data-ajax-method="POST">
+
+           
+                <input type="hidden" asp-for="EmployeeID" />
+                <input type="hidden" asp-for="Date" />
+
+                <label>
+                    <b>
+                        Employee identity number:
+                    </b>
+                    [ #id =
+                    @if (Model.EmployeeID == 0)
+                    {
+        <b class="text-danger">Employee not found</b> }
+    else
+    {
+    @Model.EmployeeID}
+                    ]
+                </label>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="EmployeeFirstName" class="control-label"></label>
+                            <input asp-for="EmployeeFirstName" class="form-control" />
+                            <span asp-validation-for="EmployeeFirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="EmployeeLastName" class="control-label"></label>
+                            <input asp-for="EmployeeLastName" class="form-control" />
+                            <span asp-validation-for="EmployeeLastName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="EmployeePhone" class="control-label"></label>
+                            <input asp-for="EmployeePhone" mask="(999) 999-9999" class="form-control" />
+                            <span asp-validation-for="EmployeePhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="EmployeeZip" class="control-label"></label>
+                            <input asp-for="EmployeeZip" class="form-control" />
+                            <span asp-validation-for="EmployeeZip" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="HireDate" class="control-label"></label>
+                            <input asp-for="HireDate" class="form-control" />
+                            <span asp-validation-for="HireDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <a asp-action="Index" class="btn btn-secondary btn-block">
+                            <i class="fa fa-table"></i> Back to the list
+                        </a>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
