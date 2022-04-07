@@ -15,7 +15,6 @@ About the application technologies and operation:
 - jquery.unobtrusive-ajax
 - Other :
     - Input mask
-    - Search 
     - Data Annotation
 
 ### Installation/ Configuration:
